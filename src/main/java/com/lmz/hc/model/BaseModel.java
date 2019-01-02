@@ -19,8 +19,14 @@ public abstract class BaseModel implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date operateDate;
 
-    @Column(name = "operate_user_id")
-    private Long operateUserId;
+    @Column(name = "create_user")
+    private Long createUser;
+
+    @Column(name = "operate_user")
+    private Long operateUser;
+
+    @Column(name = "del_flag")
+    private String delFlag;
 
     public Long getId() {
         return id;
@@ -46,21 +52,27 @@ public abstract class BaseModel implements Serializable {
         this.operateDate = operateDate;
     }
 
-    public Long getOperateUserId() {
-        return operateUserId;
+    public Long getCreateUser() {
+        return createUser;
     }
 
-    public void setOperateUserId(Long operateUserId) {
-        this.operateUserId = operateUserId;
+    public void setCreateUser(Long createUser) {
+        this.createUser = createUser;
     }
 
-    @Override
-    public String toString() {
-        return "BaseModel{" +
-                "id=" + id +
-                ", createDate=" + createDate +
-                ", operateDate=" + operateDate +
-                ", operateUserId=" + operateUserId +
-                '}';
+    public Long getOperateUser() {
+        return operateUser;
+    }
+
+    public void setOperateUser(Long operateUser) {
+        this.operateUser = operateUser;
+    }
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
     }
 }
