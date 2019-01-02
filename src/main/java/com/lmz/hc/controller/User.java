@@ -1,19 +1,19 @@
-package com.lmz.hc.test;
+package com.lmz.hc.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lmz.hc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
-public class Test {
-
+@RequestMapping("/user")
+public class User {
     @Autowired
     private UserService userService;
-    @RequestMapping("/helloWorld")
-    public Object test () {
-        return userService.getUser(1L);
-    }
 
+    @RequestMapping("/userList")
+    public Object userList(Long page, Long size){
+        return userService.page(new Page(page, size));
+    }
 }
