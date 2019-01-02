@@ -19,7 +19,8 @@ public class SysRole extends BaseModel implements Serializable {
 
     private String type;
 
-    private String group;
+
+    private String roleGroup;
 
     private String introduce;
 
@@ -42,12 +43,12 @@ public class SysRole extends BaseModel implements Serializable {
         this.type = type;
     }
 
-    public String getGroup() {
-        return group;
+    public String getRoleGroup() {
+        return roleGroup;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setRoleGroup(String roleGroup) {
+        this.roleGroup = roleGroup;
     }
 
     public String getIntroduce() {

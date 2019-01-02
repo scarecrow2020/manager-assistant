@@ -6,7 +6,7 @@ spring:
       #控制台显示建表语句
       show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:13306/eyeglasses_mall
+    url: jdbc:mysql://localhost:13306/manager_assistant
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver

@@ -16,24 +16,23 @@ public class SysUser extends BaseModel implements Serializable {
 
     private String name;
 
-    @Column(name = "user_name")
+//    @Column(name = "user_name")
     private String userName;
-
 
     private Integer age;
 
     // @JSONField(serialize = false)
-    @Column(name = "card_code")
+    //@Column(name = "card_code")
     private String cardCode;
 
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     private Date birthday;
 
     private String sex;
 
     private Long role;
 
-    @Column(name = "job_number")
+//    @Column(name = "job_number")
     private String jobNumber;
 
     private String phone;
