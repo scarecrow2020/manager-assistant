@@ -43,13 +43,13 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table tableName="sale"></table>
+        <table tableName="product"></table>
         <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
                 是否生成 example类   -->
-        <!--<table schema="" tableName="s_user"-->
-               <!--domainObjectName="UserEntity" enableCountByExample="false"-->
-               <!--enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--enableUpdateByExample="false">-->
+        <!--<table schema="" tableName="s_user"
+               domainObjectName="UserEntity" enableCountByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false">-->
             <!-- 忽略列，不生成bean 字段 -->
             <!--<ignoreColumn column="FRED" />-->
             <!-- 指定列的java数据类型 -->

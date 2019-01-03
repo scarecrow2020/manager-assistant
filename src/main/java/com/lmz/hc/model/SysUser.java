@@ -16,8 +16,10 @@ public class SysUser extends BaseModel implements Serializable {
 
     private String name;
 
-//    @Column(name = "user_name")
+    //    @Column(name = "user_name")
     private String userName;
+
+    private String password;
 
     private Integer age;
 
@@ -25,14 +27,14 @@ public class SysUser extends BaseModel implements Serializable {
     //@Column(name = "card_code")
     private String cardCode;
 
-//    @Temporal(TemporalType.DATE)
+    //    @Temporal(TemporalType.DATE)
     private Date birthday;
 
     private String sex;
 
-    private Long role;
+    private String role;
 
-//    @Column(name = "job_number")
+    //    @Column(name = "job_number")
     private String jobNumber;
 
     private String phone;
@@ -67,6 +69,14 @@ public class SysUser extends BaseModel implements Serializable {
         this.userName = userName;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Integer getAge() {
         return age;
     }
@@ -99,11 +109,11 @@ public class SysUser extends BaseModel implements Serializable {
         this.sex = sex;
     }
 
-    public Long getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Long role) {
+    public void setRole(String role) {
         this.role = role;
     }
 

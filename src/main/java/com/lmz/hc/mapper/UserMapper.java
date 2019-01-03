@@ -11,4 +11,5 @@ import com.lmz.hc.model.SysUser;
  * Description:
  */
 public interface UserMapper extends BaseMapper<SysUser> {
+    SysUser getUserByUserName(String userName);
 }

@@ -28,6 +28,8 @@ public class SysDict extends BaseModel implements Serializable {
 
     private Integer sequence;
 
+    private String introduce;
+
     @Column(name = "sys_flag")
     private String sysFlag;
 
@@ -77,5 +79,13 @@ public class SysDict extends BaseModel implements Serializable {
 
     public void setSysFlag(String sysFlag) {
         this.sysFlag = sysFlag;
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce;
     }
 }

@@ -10,16 +10,16 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-01-02 16:33:38
+Date: 2019-01-03 18:57:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for prduct
+-- Table structure for product
 -- ----------------------------
-DROP TABLE IF EXISTS `prduct`;
-CREATE TABLE `prduct` (
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `type` varchar(10) DEFAULT NULL,
   `code` varchar(50) DEFAULT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `prduct` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of prduct
+-- Records of product
 -- ----------------------------
 
 -- ----------------------------
@@ -125,6 +125,7 @@ CREATE TABLE `sys_dict` (
   `parent_key` varchar(10) CHARACTER SET utf8 DEFAULT NULL COMMENT '父key',
   `sequence` int(11) DEFAULT NULL COMMENT '序号',
   `sys_flag` varchar(10) CHARACTER SET utf8 DEFAULT NULL COMMENT '是否系统',
+  `introduce` varchar(255) DEFAULT NULL COMMENT '简介',
   `create_date` datetime DEFAULT NULL,
   `operate_date` datetime DEFAULT NULL,
   `create_user` bigint(20) DEFAULT NULL,
@@ -132,34 +133,21 @@ CREATE TABLE `sys_dict` (
   `del_flag` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index2` (`type`,`dict_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of sys_dict
 -- ----------------------------
-
--- ----------------------------
--- Table structure for sys_role
--- ----------------------------
-DROP TABLE IF EXISTS `sys_role`;
-CREATE TABLE `sys_role` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `type` varchar(50) DEFAULT NULL,
-  `group` varchar(50) DEFAULT NULL,
-  `introduce` varchar(255) DEFAULT NULL COMMENT '介绍',
-  `sys_flag` char(1) DEFAULT NULL,
-  `create_date` datetime DEFAULT NULL,
-  `operate_date` datetime DEFAULT NULL,
-  `create_user` bigint(20) DEFAULT NULL,
-  `operate_user` bigint(20) DEFAULT NULL,
-  `del_flag` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- ----------------------------
--- Records of sys_role
--- ----------------------------
+INSERT INTO `sys_dict` VALUES ('1', 'role', 'admin', '超管', null, '1', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('2', 'role', 'visitor', '游客', null, '2', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('3', 'role', 'boss', '总经理', null, '3', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('4', 'role', 'employee', '员工', null, '4', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('5', 'role', 'customer', '客户', null, '5', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('21', 'consumption', 'rent', '房租', null, '1', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('22', 'consumption', 'water', '水费', null, '2', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('23', 'consumption', 'electricity', '电费', null, '3', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('24', 'consumption', 'gas', '燃气费', null, '4', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_dict` VALUES ('25', 'consumption', 'catering', '餐饮', null, '5', '1', null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -169,11 +157,12 @@ CREATE TABLE `sys_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT '',
   `user_name` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
   `age` int(20) DEFAULT NULL,
   `card_code` varchar(50) DEFAULT '',
   `birthday` date DEFAULT NULL,
   `sex` char(1) DEFAULT '0',
-  `role` bigint(20) DEFAULT NULL,
+  `role` varchar(50) DEFAULT NULL,
   `job_number` varchar(20) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -187,8 +176,11 @@ CREATE TABLE `sys_user` (
   `operate_user` bigint(20) DEFAULT NULL,
   `del_flag` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
+INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', 'admin', '0', 'system_001', '2019-01-01', '0', 'admin', 'system_001', null, null, null, null, null, '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_user` VALUES ('2', 'visitor', 'visitor', 'visitor', '0', 'system_002', '2019-01-01', '0', 'visitor', 'system_002', '', '', '', '', '', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
+INSERT INTO `sys_user` VALUES ('3', 'boss', 'boss', 'boss', '0', null, null, '0', 'boss', null, '', '', '', '', '', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '1', '1', '0');
