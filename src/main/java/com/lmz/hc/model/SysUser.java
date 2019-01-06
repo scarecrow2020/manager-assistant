@@ -43,11 +43,9 @@ public class SysUser extends BaseModel implements Serializable {
 
     private String email;
 
-    @Column(name = "contact_way1")
-    private String contactWay1;
+    private String contactWay;
 
-    @Column(name = "contact_way2")
-    private String contactWay2;
+    private String remark;
 
     @Column(name = "registration_date")
     @Temporal(TemporalType.TIMESTAMP)
@@ -149,20 +147,20 @@ public class SysUser extends BaseModel implements Serializable {
         this.email = email;
     }
 
-    public String getContactWay1() {
-        return contactWay1;
+    public String getContactWay() {
+        return contactWay;
     }
 
-    public void setContactWay1(String contactWay1) {
-        this.contactWay1 = contactWay1;
+    public void setContactWay(String contactWay) {
+        this.contactWay = contactWay;
     }
 
-    public String getContactWay2() {
-        return contactWay2;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setContactWay2(String contactWay2) {
-        this.contactWay2 = contactWay2;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Date getRegistrationDate() {

@@ -43,7 +43,7 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table tableName="product"></table>
+        <table tableName="sys_dict"></table>
         <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
                 是否生成 example类   -->
         <!--<table schema="" tableName="s_user"

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Description: 系统操作
  */
 @RestController
-public class System {
+public class Sys {
 
     @Autowired
     private SystemService systemService;
