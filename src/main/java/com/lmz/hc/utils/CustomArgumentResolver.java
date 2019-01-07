@@ -1,5 +1,8 @@
 package com.lmz.hc.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+import com.lmz.hc.model.SysUser;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -7,6 +10,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
+import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,16 +43,12 @@ public class CustomArgumentResolver implements HandlerMethodArgumentResolver {
 				&& parameter.getParameterType().equals(UserInfo.class)) {
 //			return Utilities.getUserInfo(webRequest.getHeader(CustomInterceptorHandler.LOGIN_HEADER_NAME));
 		} else if (parameter.hasParameterAnnotation(JsonParam.class)) {
-			// String param = webRequest.getParameter(parameter.getParameterName());
-			Object param =webRequest.getParameterMap().get(parameter.getParameterName());
-			System.out.println(param);
-			return param;
-//			if (!StringUtils.isEmpty(param)) {
-//				return webRequest.getParameter()
-////				return JsonUtils.fromJson(param, parameter.getGenericParameterType());
-//			} else {
-//				return null;
-//			}
+			String param = webRequest.getParameter(parameter.getParameterName());
+			if (StringUtils.isNotBlank(param)) {
+				return JSON.parseObject(param, parameter.getGenericParameterType());
+			} else {
+				return null;
+			}
 		} else if (parameter.getParameterType().equals(Date.class)) {
 			String param = webRequest.getParameter(parameter.getParameterName());
 

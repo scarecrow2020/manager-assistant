@@ -7,6 +7,7 @@ package com.lmz.hc.utils;
  * 
  */
 public class JsonUtils {
+
 //	private static ThreadLocal<Gson> gson = new ThreadLocal<Gson>() {
 //		protected synchronized Gson initialValue() {
 //			GsonBuilder gb = new GsonBuilder();
